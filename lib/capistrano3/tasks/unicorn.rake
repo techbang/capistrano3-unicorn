@@ -4,7 +4,7 @@ namespace :load do
     set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
     set :unicorn_roles, -> { :web }
     set :unicorn_options, -> { "" }
-    set :unicorn_rack_env, -> { fetch(:rails_env) == "development" ? "development" : "deployment" }
+    set :unicorn_rack_env, -> { fetch(:rails_env) == "production" ? "production" : "staging" }
     set :unicorn_restart_sleep_time, 3
   end
 end
